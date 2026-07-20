@@ -1,66 +1,78 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <SD.h>
-#include <Adafruit_MLX90640.h>
+#include <Adafruit_AMG88xx.h>
 #include <Adafruit_BME280.h>
 #include <TinyGPSPlus.h>
+#include <SoftwareSerial.h>
 
-const int chipSelect = 53;
+#define SIMULATION_MODE true // Set to false when connecting real hardware
 
-Adafruit_MLX90640 mlx;
+const int chipSelect = 10; // Uno R3 default SPI SS
+const int rxPin = 4;       // SoftwareSerial RX for GPS
+const int txPin = 3;       // SoftwareSerial TX for GPS
+
+SoftwareSerial ss(rxPin, txPin);
+
+Adafruit_AMG88xx amg;
 Adafruit_BME280 bme;
 TinyGPSPlus gps;
 File dataFile;
 
-float frame[32 * 24]; 
+float pixels[AMG88xx_PIXEL_ARRAY_SIZE]; // 64 floats (256 bytes)
 
 void setup() {
   Serial.begin(115200);
-  Serial1.begin(9600);
+  ss.begin(9600);
   
   while (!Serial) delay(10);
   
-  Serial.println("Urban Heat Mapping - Initialization Started");
+  // Use F() macro to store literal strings in flash memory, saving SRAM
+  Serial.println(F("Urban Heat Mapping - Initialization Started"));
 
   Wire.begin();
-  Wire.setClock(400000); 
 
-  Serial.print("Initializing SD card...");
+  Serial.print(F("Initializing SD card..."));
   if (!SD.begin(chipSelect)) {
-    Serial.println("Card failed, or not present");
+    Serial.println(F("Card failed, or not present"));
     while (1);
   }
-  Serial.println("card initialized.");
+  Serial.println(F("card initialized."));
   
   dataFile = SD.open("datalog.csv", FILE_WRITE);
   if (dataFile) {
-    dataFile.println("Timestamp,Latitude,Longitude,AmbientTemp_C,Humidity_Pct,Pressure_hPa,CenterIRTemp_C");
+    dataFile.println(F("Timestamp,Latitude,Longitude,AmbientTemp_C,Humidity_Pct,Pressure_hPa,CenterIRTemp_C"));
     dataFile.close();
   } else {
-    Serial.println("Error opening datalog.csv");
+    Serial.println(F("Error opening datalog.csv"));
   }
 
-  Serial.println("Initializing MLX90640...");
-  if (!mlx.begin(MLX90640_I2CADDR_DEFAULT, &Wire)) {
-    Serial.println("MLX90640 not found! Check wiring.");
+  Serial.println(F("Initializing AMG8833..."));
+#if SIMULATION_MODE
+  Serial.println(F("SIMULATION MODE: Bypassing AMG8833 check."));
+#else
+  if (!amg.begin()) {
+    Serial.println(F("AMG8833 not found! Check wiring."));
     while (1) delay(10);
   }
-  mlx.setMode(MLX90640_CHESS);
-  mlx.setResolution(MLX90640_ADC_18BIT);
-  mlx.setRefreshRate(MLX90640_2_HZ);
+#endif
 
-  Serial.println("Initializing BME280...");
+  Serial.println(F("Initializing BME280..."));
+#if SIMULATION_MODE
+  Serial.println(F("SIMULATION MODE: Bypassing BME280 check."));
+#else
   if (!bme.begin(0x76, &Wire)) { 
-    Serial.println("Could not find a valid BME280 sensor, check wiring!");
+    Serial.println(F("Could not find a valid BME280 sensor, check wiring!"));
     while (1) delay(10);
   }
+#endif
 
-  Serial.println("Initialization Complete.");
+  Serial.println(F("Initialization Complete."));
 }
 
 void loop() {
-  while (Serial1.available() > 0) {
-    gps.encode(Serial1.read());
+  while (ss.available() > 0) {
+    gps.encode(ss.read());
   }
 
   static unsigned long lastLogTime = 0;
@@ -71,16 +83,24 @@ void loop() {
 }
 
 void logData() {
+#if SIMULATION_MODE
+  float ambientTemp = 25.0 + random(-20, 20) / 10.0;
+  float humidity = 45.0 + random(-50, 50) / 10.0;
+  float pressure = 1012.0 + random(-10, 10) / 10.0;
+  
+  for(int i = 0; i < AMG88xx_PIXEL_ARRAY_SIZE; i++) {
+    pixels[i] = ambientTemp + 2.0 + random(-5, 15) / 10.0;
+  }
+#else
   float ambientTemp = bme.readTemperature();
   float humidity = bme.readHumidity();
   float pressure = bme.readPressure() / 100.0F;
 
-  if (mlx.getFrame(frame) != 0) {
-    Serial.println("Failed to read MLX90640 frame");
-    return;
-  }
+  amg.readPixels(pixels);
+#endif
   
-  float centerIRTemp = frame[367]; 
+  // Extract center temperature (average of the middle 4 pixels of the 8x8 array)
+  float centerIRTemp = (pixels[27] + pixels[28] + pixels[35] + pixels[36]) / 4.0; 
 
   String timestamp = "NO_TIME";
   if (gps.time.isValid()) {
@@ -107,6 +127,6 @@ void logData() {
     dataFile.println(dataString);
     dataFile.close();
   } else {
-    Serial.println("Error opening datalog.csv for writing");
+    Serial.println(F("Error opening datalog.csv for writing"));
   }
 }
