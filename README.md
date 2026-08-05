@@ -2,13 +2,13 @@
 
 A handheld thermal mapping data acquisition system designed to collect physical micro-climate surface data across an urban campus and compare it against historical NASA satellite baseline datasets.
 
-## 🚀 Project Overview
+## Project Overview
 
 The goal of this project is to investigate the urban heat island effect at San Bernardino Valley College. Due to hardware constraints and a pivot from a UAV payload to a handheld scanner, this project focuses heavily on **Data Architecture and Software Engineering**. 
 
 We built a custom browser-based Data Acquisition System that fuses live physical sensor data (via Arduino over USB) with the laptop's onboard HTML5 Geolocation API as the user walks the campus. This physical data is then processed through a Python pipeline that queries the NASA POWER REST API for historical baseline comparisons, culminating in an interactive web dashboard.
 
-## 💻 System Architecture
+## System Architecture
 
 The project is divided into four interconnected software systems:
 
@@ -19,7 +19,7 @@ The project is divided into four interconnected software systems:
     * `process_data.py`: Ingests the collected CSV, formats it into standardized web-ready spatial data (`GeoJSON`), and fuses it with the NASA baselines.
 4. **Interactive Web Dashboard (HTML/JS):** A stunning, modern web application (`dashboard/index.html`) built with Leaflet.js that visualizes the physical data walk as a continuous, fluid thermal gradient over the campus map, allowing side-by-side comparison with the NASA dataset.
 
-## 🚦 Getting Started
+## Getting Started
 
 ### 1. Arduino Setup
 * Flash the `UrbanHeatMapping.ino` sketch to your Arduino Mega.
@@ -42,6 +42,6 @@ python scripts/process_data.py
 
 Finally, open `dashboard/index.html` to view the interactive thermal map!
 
-## 📝 License
+## License
 
 See the [LICENSE](LICENSE) file for details.
