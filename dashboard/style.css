@@ -1,0 +1,303 @@
+:root {
+    --bg-dark: #0f172a;
+    --panel-bg: rgba(15, 23, 42, 0.75);
+    --panel-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-glow: rgba(56, 189, 248, 0.5);
+    --primary-color: #38bdf8;
+    --hot-color: #ef4444;
+    --cold-color: #3b82f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow: hidden; /* Prevent scrolling, app-like feel */
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ================== MAP SECTION ================== */
+.map-section {
+    position: relative;
+    flex: 1;
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Dark mode Leaflet tiles */
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.glass-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.6s ease-out;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h1 .highlight {
+    color: var(--primary-color);
+}
+
+.pulse-ring {
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 var(--accent-glow);
+    animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+.status-badge {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-badge .dot {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+}
+
+/* ================== SIDEBAR ================== */
+.analytics-sidebar {
+    width: 400px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid var(--panel-border);
+    z-index: 10;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-content {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card .icon {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-info .label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-info .value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--primary-color);
+}
+
+/* Legend */
+.legend-container {
+    margin-top: auto;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.legend-container h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+.gradient-bar {
+    height: 12px;
+    width: 100%;
+    border-radius: 6px;
+    background: linear-gradient(to right, #3b82f6, #10b981, #f59e0b, #ef4444);
+    margin-bottom: 10px;
+}
+
+.gradient-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* Button */
+.action-section {
+    display: flex;
+    justify-content: center;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+    filter: brightness(1.1);
+}
+
+.primary-btn:active {
+    transform: translateY(1px);
+}
+
+/* ================== ANIMATIONS ================== */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+    70% { box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Custom Leaflet Popup overrides for Dark mode */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: rgba(15, 23, 42, 0.95) !important;
+    color: #f8fafc !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+.leaflet-popup-content {
+    font-family: 'Outfit', sans-serif;
+    margin: 15px;
+}
+.popup-title {
+    font-weight: 800;
+    color: var(--primary-color);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.popup-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+.popup-val {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+}

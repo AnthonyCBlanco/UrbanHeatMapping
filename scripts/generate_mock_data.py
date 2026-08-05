@@ -3,59 +3,80 @@ import random
 import datetime
 import math
 import os
+import json
 
 # Configuration
-NUM_DATA_POINTS = 120  # 2 minutes of data at 1Hz
-START_LAT = 34.0522    # Los Angeles (Downtown)
-START_LON = -118.2437
-LAT_INCREMENT = 0.00005  # roughly 5.5 meters per second North
-LON_INCREMENT = 0.00002  # roughly 2 meters per second East
+GRID_WIDTH = 40
+GRID_HEIGHT = 30
+NUM_DATA_POINTS = GRID_WIDTH * GRID_HEIGHT  # 1200 points total
+START_LAT = 34.0833    # San Bernardino Valley College (South edge)
+START_LON = -117.3160  # West edge
+GRID_STEP = 0.0002     # Distance between each point (~22 meters)
 
 # Hotspot configuration (simulating dark roofs or asphalt absorbing heat)
+# Using grid coordinates (col, row) instead of index
 HOTSPOTS = [
-    {"index": 30, "radius": 10, "intensity": 8.0},
-    {"index": 80, "radius": 15, "intensity": 14.0}
+    {"col": 10, "row": 20, "radius": 5, "intensity": 9.0},
+    {"col": 28, "row": 15, "radius": 8, "intensity": 14.0},
+    {"col": 20, "row": 5, "radius": 4, "intensity": 7.0}
 ]
 
 # Get the directory of the current script
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Save the output file one level up in the main project folder
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "..", "datalog.csv")
+NASA_FILE = os.path.join(SCRIPT_DIR, "nasa_baseline.json")
+
+def load_nasa_baseline():
+    if os.path.exists(NASA_FILE):
+        with open(NASA_FILE, 'r') as f:
+            return json.load(f)
+    return None
 
 def generate_data():
     data = []
     
     # Start the timestamp at a fixed time for consistency, e.g., 14:00:00
     current_time = datetime.datetime.now().replace(hour=14, minute=0, second=0, microsecond=0)
-    current_lat = START_LAT
-    current_lon = START_LON
     
-    base_ambient_temp = 25.0
+    # Load NASA baseline
+    nasa_data = load_nasa_baseline()
+    if nasa_data:
+        base_ambient_temp = nasa_data["ambient_temp_c"]
+        base_surface_temp = nasa_data["surface_temp_c"]
+        print(f"Using NASA Baseline -> Ambient: {base_ambient_temp}°C, Surface: {base_surface_temp}°C")
+    else:
+        base_ambient_temp = 25.0
+        base_surface_temp = 27.0
+        print("NASA data not found. Using default baselines.")
+        
     base_humidity = 45.0
-    base_pressure = 1012.0
 
     for i in range(NUM_DATA_POINTS):
+        row = i // GRID_WIDTH
+        col = i % GRID_WIDTH
+        
         # 1. Timestamp (HH:MM:SS)
         timestamp = current_time.strftime("%H:%M:%S")
         
-        # 2. GPS
-        # Add slight random drift to the movement
-        current_lat += LAT_INCREMENT + random.uniform(-0.000005, 0.000005)
-        current_lon += LON_INCREMENT + random.uniform(-0.000005, 0.000005)
+        # 2. GPS - Calculate grid position with a tiny bit of human wobble
+        current_lat = START_LAT + (row * GRID_STEP) + random.uniform(-0.000002, 0.000002)
+        current_lon = START_LON + (col * GRID_STEP) + random.uniform(-0.000002, 0.000002)
         
         # 3. Ambient Sensors (add slight sensor noise)
         ambient_temp = base_ambient_temp + random.uniform(-0.2, 0.2)
         humidity = base_humidity + random.uniform(-1.0, 1.0)
-        pressure = base_pressure + random.uniform(-0.5, 0.5)
         
         # 4. IR Center Temp
-        # Base IR temp is usually slightly higher than ambient for urban ground
-        base_ir = ambient_temp + 2.0 + random.uniform(-0.5, 0.5)
+        base_ir = base_surface_temp + random.uniform(-0.5, 0.5)
         
-        # Apply Urban Heat Island hotspots
+        # Apply Urban Heat Island hotspots based on grid distance
         ir_temp = base_ir
         for hotspot in HOTSPOTS:
-            distance = abs(i - hotspot["index"])
+            dist_col = col - hotspot["col"]
+            dist_row = row - hotspot["row"]
+            distance = math.sqrt(dist_col**2 + dist_row**2)
+            
             if distance < hotspot["radius"]:
                 # Gaussian bell curve effect for the hotspot
                 effect = hotspot["intensity"] * math.exp(-(distance**2) / (hotspot["radius"]**2 / 2))
@@ -68,22 +89,21 @@ def generate_data():
             f"{current_lon:.6f}",
             f"{ambient_temp:.2f}",
             f"{humidity:.2f}",
-            f"{pressure:.2f}",
             f"{ir_temp:.2f}"
         ])
         
-        # Increment time by 1 second (1Hz sampling rate)
-        current_time += datetime.timedelta(seconds=1)
+        # Increment time by 5 seconds (simulating walking to the next grid point)
+        current_time += datetime.timedelta(seconds=5)
         
     return data
 
 def main():
-    print("Generating mock drone flight data...")
+    print("Generating mock walking grid survey data...")
     data = generate_data()
     
     headers = [
         "Timestamp", "Latitude", "Longitude", 
-        "AmbientTemp_C", "Humidity_Pct", "Pressure_hPa", "CenterIRTemp_C"
+        "AmbientTemp_C", "Humidity_Pct", "CenterIRTemp_C"
     ]
     
     print(f"Writing {len(data)} rows to {os.path.abspath(OUTPUT_FILE)}...")

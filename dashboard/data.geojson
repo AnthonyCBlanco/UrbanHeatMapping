@@ -1,0 +1,1925 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243682,
+          34.052252
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:00",
+        "AmbientTemp_C": 24.82,
+        "Humidity_Pct": 44.58,
+        "CenterIRTemp_C": 27.12
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243662,
+          34.052299
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:01",
+        "AmbientTemp_C": 24.81,
+        "Humidity_Pct": 45.55,
+        "CenterIRTemp_C": 26.78
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243645,
+          34.052349
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:02",
+        "AmbientTemp_C": 25.11,
+        "Humidity_Pct": 44.21,
+        "CenterIRTemp_C": 27.28
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243623,
+          34.052403
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:03",
+        "AmbientTemp_C": 25.15,
+        "Humidity_Pct": 45.0,
+        "CenterIRTemp_C": 27.17
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243607,
+          34.052453
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:04",
+        "AmbientTemp_C": 24.96,
+        "Humidity_Pct": 45.2,
+        "CenterIRTemp_C": 26.52
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243589,
+          34.052504
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:05",
+        "AmbientTemp_C": 24.84,
+        "Humidity_Pct": 44.71,
+        "CenterIRTemp_C": 26.56
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243564,
+          34.052553
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:06",
+        "AmbientTemp_C": 25.08,
+        "Humidity_Pct": 44.17,
+        "CenterIRTemp_C": 26.72
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243541,
+          34.052599
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:07",
+        "AmbientTemp_C": 25.18,
+        "Humidity_Pct": 44.15,
+        "CenterIRTemp_C": 27.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243518,
+          34.052644
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:08",
+        "AmbientTemp_C": 24.97,
+        "Humidity_Pct": 45.0,
+        "CenterIRTemp_C": 27.38
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243503,
+          34.052689
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:09",
+        "AmbientTemp_C": 24.8,
+        "Humidity_Pct": 44.21,
+        "CenterIRTemp_C": 26.58
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243486,
+          34.052744
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:10",
+        "AmbientTemp_C": 25.02,
+        "Humidity_Pct": 45.17,
+        "CenterIRTemp_C": 27.32
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243464,
+          34.052793
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:11",
+        "AmbientTemp_C": 24.83,
+        "Humidity_Pct": 45.09,
+        "CenterIRTemp_C": 26.68
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24344,
+          34.05284
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:12",
+        "AmbientTemp_C": 24.83,
+        "Humidity_Pct": 44.77,
+        "CenterIRTemp_C": 26.34
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243421,
+          34.052893
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:13",
+        "AmbientTemp_C": 24.88,
+        "Humidity_Pct": 44.15,
+        "CenterIRTemp_C": 26.69
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243402,
+          34.052945
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:14",
+        "AmbientTemp_C": 25.02,
+        "Humidity_Pct": 45.75,
+        "CenterIRTemp_C": 27.41
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243383,
+          34.052996
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:15",
+        "AmbientTemp_C": 25.15,
+        "Humidity_Pct": 44.36,
+        "CenterIRTemp_C": 26.74
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243365,
+          34.05305
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:16",
+        "AmbientTemp_C": 24.96,
+        "Humidity_Pct": 45.79,
+        "CenterIRTemp_C": 26.49
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24334,
+          34.053105
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:17",
+        "AmbientTemp_C": 25.02,
+        "Humidity_Pct": 44.56,
+        "CenterIRTemp_C": 27.09
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243317,
+          34.053153
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:18",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 44.05,
+        "CenterIRTemp_C": 27.48
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243293,
+          34.053198
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:19",
+        "AmbientTemp_C": 24.9,
+        "Humidity_Pct": 45.89,
+        "CenterIRTemp_C": 26.84
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243273,
+          34.053246
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:20",
+        "AmbientTemp_C": 24.84,
+        "Humidity_Pct": 44.92,
+        "CenterIRTemp_C": 27.16
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24325,
+          34.053298
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:21",
+        "AmbientTemp_C": 25.05,
+        "Humidity_Pct": 45.39,
+        "CenterIRTemp_C": 28.66
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243228,
+          34.053343
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:22",
+        "AmbientTemp_C": 24.87,
+        "Humidity_Pct": 45.86,
+        "CenterIRTemp_C": 29.41
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243208,
+          34.05339
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:23",
+        "AmbientTemp_C": 24.88,
+        "Humidity_Pct": 44.88,
+        "CenterIRTemp_C": 30.19
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243184,
+          34.053436
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:24",
+        "AmbientTemp_C": 24.94,
+        "Humidity_Pct": 45.23,
+        "CenterIRTemp_C": 30.76
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243162,
+          34.053483
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:25",
+        "AmbientTemp_C": 25.01,
+        "Humidity_Pct": 45.89,
+        "CenterIRTemp_C": 31.46
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243144,
+          34.053534
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:26",
+        "AmbientTemp_C": 24.99,
+        "Humidity_Pct": 45.89,
+        "CenterIRTemp_C": 33.22
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243122,
+          34.053588
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:27",
+        "AmbientTemp_C": 25.06,
+        "Humidity_Pct": 44.68,
+        "CenterIRTemp_C": 33.44
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243106,
+          34.053633
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:28",
+        "AmbientTemp_C": 25.08,
+        "Humidity_Pct": 45.61,
+        "CenterIRTemp_C": 34.82
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243082,
+          34.053682
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:29",
+        "AmbientTemp_C": 24.81,
+        "Humidity_Pct": 45.6,
+        "CenterIRTemp_C": 34.82
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243059,
+          34.053735
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:30",
+        "AmbientTemp_C": 24.91,
+        "Humidity_Pct": 45.04,
+        "CenterIRTemp_C": 34.61
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243037,
+          34.053784
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:31",
+        "AmbientTemp_C": 25.04,
+        "Humidity_Pct": 44.96,
+        "CenterIRTemp_C": 35.19
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.243015,
+          34.053838
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:32",
+        "AmbientTemp_C": 25.07,
+        "Humidity_Pct": 44.89,
+        "CenterIRTemp_C": 34.91
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242993,
+          34.053886
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:33",
+        "AmbientTemp_C": 24.91,
+        "Humidity_Pct": 44.46,
+        "CenterIRTemp_C": 34.06
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242975,
+          34.053936
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:34",
+        "AmbientTemp_C": 25.18,
+        "Humidity_Pct": 45.48,
+        "CenterIRTemp_C": 32.86
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242952,
+          34.053989
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:35",
+        "AmbientTemp_C": 24.96,
+        "Humidity_Pct": 45.65,
+        "CenterIRTemp_C": 32.11
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24293,
+          34.054043
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:36",
+        "AmbientTemp_C": 25.02,
+        "Humidity_Pct": 45.64,
+        "CenterIRTemp_C": 31.04
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242906,
+          34.054093
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:37",
+        "AmbientTemp_C": 25.18,
+        "Humidity_Pct": 45.81,
+        "CenterIRTemp_C": 29.82
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242884,
+          34.054144
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:38",
+        "AmbientTemp_C": 24.88,
+        "Humidity_Pct": 45.79,
+        "CenterIRTemp_C": 28.87
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242862,
+          34.054194
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:39",
+        "AmbientTemp_C": 24.9,
+        "Humidity_Pct": 44.54,
+        "CenterIRTemp_C": 28.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242843,
+          34.054243
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:40",
+        "AmbientTemp_C": 24.85,
+        "Humidity_Pct": 45.09,
+        "CenterIRTemp_C": 26.91
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242822,
+          34.054294
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:41",
+        "AmbientTemp_C": 25.15,
+        "Humidity_Pct": 44.64,
+        "CenterIRTemp_C": 26.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242801,
+          34.054344
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:42",
+        "AmbientTemp_C": 25.11,
+        "Humidity_Pct": 45.73,
+        "CenterIRTemp_C": 26.64
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242776,
+          34.054396
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:43",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 44.62,
+        "CenterIRTemp_C": 27.03
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242754,
+          34.054442
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:44",
+        "AmbientTemp_C": 24.92,
+        "Humidity_Pct": 44.35,
+        "CenterIRTemp_C": 27.35
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242737,
+          34.054494
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:45",
+        "AmbientTemp_C": 25.15,
+        "Humidity_Pct": 44.26,
+        "CenterIRTemp_C": 27.03
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242719,
+          34.054546
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:46",
+        "AmbientTemp_C": 24.93,
+        "Humidity_Pct": 44.04,
+        "CenterIRTemp_C": 27.18
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242697,
+          34.054601
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:47",
+        "AmbientTemp_C": 25.06,
+        "Humidity_Pct": 45.21,
+        "CenterIRTemp_C": 27.17
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242676,
+          34.054654
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:48",
+        "AmbientTemp_C": 24.9,
+        "Humidity_Pct": 45.04,
+        "CenterIRTemp_C": 26.82
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242658,
+          34.054702
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:49",
+        "AmbientTemp_C": 24.88,
+        "Humidity_Pct": 44.27,
+        "CenterIRTemp_C": 27.09
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24264,
+          34.054752
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:50",
+        "AmbientTemp_C": 25.05,
+        "Humidity_Pct": 44.24,
+        "CenterIRTemp_C": 27.17
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24262,
+          34.054804
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:51",
+        "AmbientTemp_C": 24.83,
+        "Humidity_Pct": 45.49,
+        "CenterIRTemp_C": 27.26
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242598,
+          34.054851
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:52",
+        "AmbientTemp_C": 24.83,
+        "Humidity_Pct": 44.21,
+        "CenterIRTemp_C": 26.33
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242573,
+          34.054902
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:53",
+        "AmbientTemp_C": 24.83,
+        "Humidity_Pct": 45.19,
+        "CenterIRTemp_C": 27.25
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242553,
+          34.054948
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:54",
+        "AmbientTemp_C": 24.84,
+        "Humidity_Pct": 45.03,
+        "CenterIRTemp_C": 26.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242538,
+          34.054997
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:55",
+        "AmbientTemp_C": 24.91,
+        "Humidity_Pct": 44.22,
+        "CenterIRTemp_C": 26.55
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242516,
+          34.055044
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:56",
+        "AmbientTemp_C": 24.98,
+        "Humidity_Pct": 45.9,
+        "CenterIRTemp_C": 27.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242499,
+          34.055097
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:57",
+        "AmbientTemp_C": 25.19,
+        "Humidity_Pct": 44.73,
+        "CenterIRTemp_C": 27.66
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24248,
+          34.055149
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:58",
+        "AmbientTemp_C": 24.9,
+        "Humidity_Pct": 45.6,
+        "CenterIRTemp_C": 26.81
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242457,
+          34.055199
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:00:59",
+        "AmbientTemp_C": 24.97,
+        "Humidity_Pct": 44.28,
+        "CenterIRTemp_C": 26.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242434,
+          34.055245
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:00",
+        "AmbientTemp_C": 24.93,
+        "Humidity_Pct": 45.89,
+        "CenterIRTemp_C": 27.04
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242412,
+          34.055293
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:01",
+        "AmbientTemp_C": 24.92,
+        "Humidity_Pct": 44.12,
+        "CenterIRTemp_C": 26.99
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242391,
+          34.055339
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:02",
+        "AmbientTemp_C": 24.95,
+        "Humidity_Pct": 45.8,
+        "CenterIRTemp_C": 27.27
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242366,
+          34.055393
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:03",
+        "AmbientTemp_C": 25.18,
+        "Humidity_Pct": 45.09,
+        "CenterIRTemp_C": 27.15
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242345,
+          34.055445
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:04",
+        "AmbientTemp_C": 24.9,
+        "Humidity_Pct": 45.73,
+        "CenterIRTemp_C": 27.08
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242329,
+          34.055493
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:05",
+        "AmbientTemp_C": 25.03,
+        "Humidity_Pct": 44.6,
+        "CenterIRTemp_C": 26.73
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242311,
+          34.055543
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:06",
+        "AmbientTemp_C": 25.03,
+        "Humidity_Pct": 45.23,
+        "CenterIRTemp_C": 29.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24229,
+          34.055597
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:07",
+        "AmbientTemp_C": 24.9,
+        "Humidity_Pct": 45.57,
+        "CenterIRTemp_C": 29.73
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242266,
+          34.055649
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:08",
+        "AmbientTemp_C": 25.14,
+        "Humidity_Pct": 45.85,
+        "CenterIRTemp_C": 31.45
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242246,
+          34.055703
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:09",
+        "AmbientTemp_C": 24.95,
+        "Humidity_Pct": 45.19,
+        "CenterIRTemp_C": 31.67
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24223,
+          34.055757
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:10",
+        "AmbientTemp_C": 24.9,
+        "Humidity_Pct": 44.51,
+        "CenterIRTemp_C": 32.42
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242211,
+          34.055812
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:11",
+        "AmbientTemp_C": 24.97,
+        "Humidity_Pct": 45.24,
+        "CenterIRTemp_C": 33.34
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242193,
+          34.05586
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:12",
+        "AmbientTemp_C": 25.1,
+        "Humidity_Pct": 44.11,
+        "CenterIRTemp_C": 34.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242177,
+          34.055905
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:13",
+        "AmbientTemp_C": 25.05,
+        "Humidity_Pct": 44.52,
+        "CenterIRTemp_C": 36.41
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242153,
+          34.055953
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:14",
+        "AmbientTemp_C": 24.94,
+        "Humidity_Pct": 44.27,
+        "CenterIRTemp_C": 36.79
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242134,
+          34.056003
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:15",
+        "AmbientTemp_C": 25.1,
+        "Humidity_Pct": 45.68,
+        "CenterIRTemp_C": 38.25
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242117,
+          34.056051
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:16",
+        "AmbientTemp_C": 24.82,
+        "Humidity_Pct": 45.73,
+        "CenterIRTemp_C": 38.67
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242092,
+          34.056101
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:17",
+        "AmbientTemp_C": 24.97,
+        "Humidity_Pct": 44.31,
+        "CenterIRTemp_C": 39.67
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242073,
+          34.056156
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:18",
+        "AmbientTemp_C": 24.83,
+        "Humidity_Pct": 44.85,
+        "CenterIRTemp_C": 40.77
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242052,
+          34.056203
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:19",
+        "AmbientTemp_C": 25.04,
+        "Humidity_Pct": 44.47,
+        "CenterIRTemp_C": 40.95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242033,
+          34.056254
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:20",
+        "AmbientTemp_C": 24.95,
+        "Humidity_Pct": 45.69,
+        "CenterIRTemp_C": 41.42
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.242013,
+          34.0563
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:21",
+        "AmbientTemp_C": 25.06,
+        "Humidity_Pct": 45.72,
+        "CenterIRTemp_C": 40.72
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241992,
+          34.056347
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:22",
+        "AmbientTemp_C": 24.84,
+        "Humidity_Pct": 44.53,
+        "CenterIRTemp_C": 39.93
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241975,
+          34.056402
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:23",
+        "AmbientTemp_C": 24.84,
+        "Humidity_Pct": 44.34,
+        "CenterIRTemp_C": 39.51
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241957,
+          34.056452
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:24",
+        "AmbientTemp_C": 24.99,
+        "Humidity_Pct": 44.97,
+        "CenterIRTemp_C": 39.19
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241941,
+          34.056505
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:25",
+        "AmbientTemp_C": 24.88,
+        "Humidity_Pct": 44.83,
+        "CenterIRTemp_C": 38.53
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241916,
+          34.05655
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:26",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 44.34,
+        "CenterIRTemp_C": 37.02
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241894,
+          34.056598
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:27",
+        "AmbientTemp_C": 24.82,
+        "Humidity_Pct": 44.03,
+        "CenterIRTemp_C": 35.42
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241874,
+          34.056651
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:28",
+        "AmbientTemp_C": 24.81,
+        "Humidity_Pct": 44.3,
+        "CenterIRTemp_C": 34.66
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241851,
+          34.056696
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:29",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 44.26,
+        "CenterIRTemp_C": 34.23
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241828,
+          34.056751
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:30",
+        "AmbientTemp_C": 24.91,
+        "Humidity_Pct": 44.05,
+        "CenterIRTemp_C": 32.21
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241806,
+          34.056798
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:31",
+        "AmbientTemp_C": 24.88,
+        "Humidity_Pct": 44.61,
+        "CenterIRTemp_C": 31.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241784,
+          34.056852
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:32",
+        "AmbientTemp_C": 24.91,
+        "Humidity_Pct": 44.89,
+        "CenterIRTemp_C": 31.23
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241759,
+          34.0569
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:33",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 45.46,
+        "CenterIRTemp_C": 29.91
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241744,
+          34.056953
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:34",
+        "AmbientTemp_C": 24.96,
+        "Humidity_Pct": 44.64,
+        "CenterIRTemp_C": 29.52
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241719,
+          34.057003
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:35",
+        "AmbientTemp_C": 24.89,
+        "Humidity_Pct": 44.42,
+        "CenterIRTemp_C": 26.72
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.2417,
+          34.057053
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:36",
+        "AmbientTemp_C": 24.9,
+        "Humidity_Pct": 45.74,
+        "CenterIRTemp_C": 27.29
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241678,
+          34.057099
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:37",
+        "AmbientTemp_C": 24.88,
+        "Humidity_Pct": 45.22,
+        "CenterIRTemp_C": 26.47
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241659,
+          34.057145
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:38",
+        "AmbientTemp_C": 24.97,
+        "Humidity_Pct": 45.3,
+        "CenterIRTemp_C": 27.32
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24164,
+          34.057191
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:39",
+        "AmbientTemp_C": 24.85,
+        "Humidity_Pct": 45.6,
+        "CenterIRTemp_C": 26.42
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241621,
+          34.057238
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:40",
+        "AmbientTemp_C": 25.07,
+        "Humidity_Pct": 44.49,
+        "CenterIRTemp_C": 26.87
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241599,
+          34.05729
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:41",
+        "AmbientTemp_C": 24.85,
+        "Humidity_Pct": 45.09,
+        "CenterIRTemp_C": 27.07
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24158,
+          34.05734
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:42",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 45.74,
+        "CenterIRTemp_C": 27.47
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241562,
+          34.057386
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:43",
+        "AmbientTemp_C": 25.1,
+        "Humidity_Pct": 44.13,
+        "CenterIRTemp_C": 27.35
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241545,
+          34.057436
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:44",
+        "AmbientTemp_C": 25.14,
+        "Humidity_Pct": 44.33,
+        "CenterIRTemp_C": 26.67
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241522,
+          34.057483
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:45",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 44.81,
+        "CenterIRTemp_C": 27.38
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241502,
+          34.057535
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:46",
+        "AmbientTemp_C": 24.91,
+        "Humidity_Pct": 44.16,
+        "CenterIRTemp_C": 26.69
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241482,
+          34.057589
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:47",
+        "AmbientTemp_C": 24.81,
+        "Humidity_Pct": 44.79,
+        "CenterIRTemp_C": 27.24
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241466,
+          34.057643
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:48",
+        "AmbientTemp_C": 25.12,
+        "Humidity_Pct": 45.92,
+        "CenterIRTemp_C": 27.35
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241449,
+          34.05769
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:49",
+        "AmbientTemp_C": 24.86,
+        "Humidity_Pct": 44.76,
+        "CenterIRTemp_C": 27.19
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241425,
+          34.057741
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:50",
+        "AmbientTemp_C": 24.87,
+        "Humidity_Pct": 45.65,
+        "CenterIRTemp_C": 26.62
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241402,
+          34.057793
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:51",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 45.09,
+        "CenterIRTemp_C": 26.75
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24138,
+          34.057844
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:52",
+        "AmbientTemp_C": 24.97,
+        "Humidity_Pct": 44.79,
+        "CenterIRTemp_C": 27.13
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241357,
+          34.057893
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:53",
+        "AmbientTemp_C": 25.15,
+        "Humidity_Pct": 45.6,
+        "CenterIRTemp_C": 27.33
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241333,
+          34.057943
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:54",
+        "AmbientTemp_C": 24.83,
+        "Humidity_Pct": 44.76,
+        "CenterIRTemp_C": 27.03
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241313,
+          34.057995
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:55",
+        "AmbientTemp_C": 25.03,
+        "Humidity_Pct": 45.98,
+        "CenterIRTemp_C": 27.11
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241296,
+          34.05804
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:56",
+        "AmbientTemp_C": 25.03,
+        "Humidity_Pct": 45.2,
+        "CenterIRTemp_C": 26.72
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241278,
+          34.058093
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:57",
+        "AmbientTemp_C": 25.16,
+        "Humidity_Pct": 45.78,
+        "CenterIRTemp_C": 27.66
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24126,
+          34.058142
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:58",
+        "AmbientTemp_C": 25.1,
+        "Humidity_Pct": 45.52,
+        "CenterIRTemp_C": 27.03
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.241243,
+          34.058189
+        ]
+      },
+      "properties": {
+        "Timestamp": "14:01:59",
+        "AmbientTemp_C": 25.1,
+        "Humidity_Pct": 45.85,
+        "CenterIRTemp_C": 27.16
+      }
+    }
+  ]
+}

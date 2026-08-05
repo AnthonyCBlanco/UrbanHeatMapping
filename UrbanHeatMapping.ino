@@ -1,51 +1,56 @@
 #include <Wire.h>
-#include <SPI.h>
-#include <SD.h>
+#include <EEPROM.h>
 #include <Adafruit_AMG88xx.h>
-#include <Adafruit_BME280.h>
+#include <DHT.h>
 #include <TinyGPSPlus.h>
-#include <SoftwareSerial.h>
 
-#define SIMULATION_MODE true // Set to false when connecting real hardware
+#define SIMULATION_MODE false // Set to false when connecting real hardware
 
-const int chipSelect = 10; // Uno R3 default SPI SS
-const int rxPin = 4;       // SoftwareSerial RX for GPS
-const int txPin = 3;       // SoftwareSerial TX for GPS
-
-SoftwareSerial ss(rxPin, txPin);
+const int dhtPin = 5;      // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT11
 
 Adafruit_AMG88xx amg;
-Adafruit_BME280 bme;
+DHT dht(dhtPin, DHTTYPE);
 TinyGPSPlus gps;
-File dataFile;
+
+// EEPROM Storage Configuration
+struct LogRecord {
+  uint32_t timeHHMMSS;
+  float lat;
+  float lon;
+  float ambTemp;
+  float hum;
+  float irTemp;
+};
+
+// 4096 bytes EEPROM on Mega 2560. First 2 bytes store the recordCount.
+const int MAX_RECORDS = (4096 - sizeof(uint16_t)) / sizeof(LogRecord); 
+uint16_t recordCount = 0;
 
 float pixels[AMG88xx_PIXEL_ARRAY_SIZE]; // 64 floats (256 bytes)
 
 void setup() {
   Serial.begin(115200);
-  ss.begin(9600);
+  Serial1.begin(9600); // Hardware Serial 1 for GPS on Mega 2560
   
   while (!Serial) delay(10);
   
-  // Use F() macro to store literal strings in flash memory, saving SRAM
   Serial.println(F("Urban Heat Mapping - Initialization Started"));
+  Serial.println(F("Send 'E' to Export data via USB."));
+  Serial.println(F("Send 'C' to Clear memory."));
+
+  // Load record count from EEPROM address 0
+  EEPROM.get(0, recordCount);
+  if (recordCount == 0xFFFF || recordCount > MAX_RECORDS) {
+    recordCount = 0; // Initialize if empty or corrupt
+  }
+  
+  Serial.print(F("Current records in memory: "));
+  Serial.print(recordCount);
+  Serial.print(F(" / "));
+  Serial.println(MAX_RECORDS);
 
   Wire.begin();
-
-  Serial.print(F("Initializing SD card..."));
-  if (!SD.begin(chipSelect)) {
-    Serial.println(F("Card failed, or not present"));
-    while (1);
-  }
-  Serial.println(F("card initialized."));
-  
-  dataFile = SD.open("datalog.csv", FILE_WRITE);
-  if (dataFile) {
-    dataFile.println(F("Timestamp,Latitude,Longitude,AmbientTemp_C,Humidity_Pct,Pressure_hPa,CenterIRTemp_C"));
-    dataFile.close();
-  } else {
-    Serial.println(F("Error opening datalog.csv"));
-  }
 
   Serial.println(F("Initializing AMG8833..."));
 #if SIMULATION_MODE
@@ -57,76 +62,118 @@ void setup() {
   }
 #endif
 
-  Serial.println(F("Initializing BME280..."));
+  Serial.println(F("Initializing DHT11..."));
 #if SIMULATION_MODE
-  Serial.println(F("SIMULATION MODE: Bypassing BME280 check."));
+  Serial.println(F("SIMULATION MODE: Bypassing DHT11 check."));
 #else
-  if (!bme.begin(0x76, &Wire)) { 
-    Serial.println(F("Could not find a valid BME280 sensor, check wiring!"));
-    while (1) delay(10);
-  }
+  dht.begin();
 #endif
 
   Serial.println(F("Initialization Complete."));
 }
 
 void loop() {
-  while (ss.available() > 0) {
-    gps.encode(ss.read());
+  // Check for USB commands
+  if (Serial.available() > 0) {
+    char cmd = Serial.read();
+    if (cmd == 'E' || cmd == 'e') {
+      exportData();
+    } else if (cmd == 'C' || cmd == 'c') {
+      clearData();
+    }
+  }
+
+  // Parse GPS
+  while (Serial1.available() > 0) {
+    gps.encode(Serial1.read());
   }
 
   static unsigned long lastLogTime = 0;
-  if (millis() - lastLogTime > 1000) {
+  if (millis() - lastLogTime > 5000) { // Log every 5 seconds to conserve memory
     lastLogTime = millis();
     logData();
   }
 }
 
 void logData() {
+  if (recordCount >= MAX_RECORDS) {
+    Serial.println(F("Storage FULL! Stop logging."));
+    return;
+  }
+
+  LogRecord record;
+
 #if SIMULATION_MODE
-  float ambientTemp = 25.0 + random(-20, 20) / 10.0;
-  float humidity = 45.0 + random(-50, 50) / 10.0;
-  float pressure = 1012.0 + random(-10, 10) / 10.0;
+  record.ambTemp = 25.0 + random(-20, 20) / 10.0;
+  record.hum = 45.0 + random(-50, 50) / 10.0;
   
   for(int i = 0; i < AMG88xx_PIXEL_ARRAY_SIZE; i++) {
-    pixels[i] = ambientTemp + 2.0 + random(-5, 15) / 10.0;
+    pixels[i] = record.ambTemp + 2.0 + random(-5, 15) / 10.0;
   }
 #else
-  float ambientTemp = bme.readTemperature();
-  float humidity = bme.readHumidity();
-  float pressure = bme.readPressure() / 100.0F;
+  record.ambTemp = dht.readTemperature();
+  record.hum = dht.readHumidity();
+  
+  if (isnan(record.ambTemp)) record.ambTemp = 0.0;
+  if (isnan(record.hum)) record.hum = 0.0;
 
   amg.readPixels(pixels);
 #endif
   
-  // Extract center temperature (average of the middle 4 pixels of the 8x8 array)
-  float centerIRTemp = (pixels[27] + pixels[28] + pixels[35] + pixels[36]) / 4.0; 
+  record.irTemp = (pixels[27] + pixels[28] + pixels[35] + pixels[36]) / 4.0; 
 
-  String timestamp = "NO_TIME";
+  record.timeHHMMSS = 0;
   if (gps.time.isValid()) {
-    char timeStr[10];
-    sprintf(timeStr, "%02d:%02d:%02d", gps.time.hour(), gps.time.minute(), gps.time.second());
-    timestamp = String(timeStr);
-  }
-
-  float lat = gps.location.isValid() ? gps.location.lat() : 0.0;
-  float lng = gps.location.isValid() ? gps.location.lng() : 0.0;
-
-  String dataString = timestamp + ",";
-  dataString += String(lat, 6) + ",";
-  dataString += String(lng, 6) + ",";
-  dataString += String(ambientTemp, 2) + ",";
-  dataString += String(humidity, 2) + ",";
-  dataString += String(pressure, 2) + ",";
-  dataString += String(centerIRTemp, 2);
-
-  Serial.println(dataString);
-
-  dataFile = SD.open("datalog.csv", FILE_WRITE);
-  if (dataFile) {
-    dataFile.println(dataString);
-    dataFile.close();
+    record.timeHHMMSS = gps.time.hour() * 10000UL + gps.time.minute() * 100UL + gps.time.second();
   } else {
-    Serial.println(F("Error opening datalog.csv for writing"));
+    // If no GPS time, just log millis as a fallback indicator (converted to mock HHMMSS)
+    record.timeHHMMSS = (millis() / 1000) % 100; 
   }
+
+  record.lat = gps.location.isValid() ? gps.location.lat() : 0.0;
+  record.lon = gps.location.isValid() ? gps.location.lng() : 0.0;
+
+  // Save to EEPROM
+  int address = sizeof(uint16_t) + (recordCount * sizeof(LogRecord));
+  EEPROM.put(address, record);
+  
+  recordCount++;
+  EEPROM.put(0, recordCount); // Update counter
+
+  Serial.print(F("Logged record "));
+  Serial.print(recordCount);
+  Serial.print(F("/"));
+  Serial.println(MAX_RECORDS);
+}
+
+void exportData() {
+  Serial.println(F("--- EXPORT START ---"));
+  Serial.println(F("Timestamp,Latitude,Longitude,AmbientTemp_C,Humidity_Pct,CenterIRTemp_C"));
+  
+  for (uint16_t i = 0; i < recordCount; i++) {
+    LogRecord record;
+    int address = sizeof(uint16_t) + (i * sizeof(LogRecord));
+    EEPROM.get(address, record);
+    
+    // Format timestamp back to HH:MM:SS
+    char timeStr[10];
+    uint8_t h = record.timeHHMMSS / 10000;
+    uint8_t m = (record.timeHHMMSS / 100) % 100;
+    uint8_t s = record.timeHHMMSS % 100;
+    sprintf(timeStr, "%02d:%02d:%02d", h, m, s);
+    
+    Serial.print(timeStr); Serial.print(",");
+    Serial.print(record.lat, 6); Serial.print(",");
+    Serial.print(record.lon, 6); Serial.print(",");
+    Serial.print(record.ambTemp, 2); Serial.print(",");
+    Serial.print(record.hum, 2); Serial.print(",");
+    Serial.println(record.irTemp, 2);
+  }
+  Serial.println(F("--- EXPORT END ---"));
+}
+
+void clearData() {
+  recordCount = 0;
+  EEPROM.put(0, recordCount);
+  Serial.println(F("Memory cleared. Ready for new flight."));
 }

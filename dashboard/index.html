@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Urban Heat Mapping Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Main Map Area -->
+        <main class="map-section">
+            <div id="map"></div>
+            
+            <!-- Floating Header inside Map -->
+            <header class="glass-header">
+                <div class="logo-area">
+                    <div class="pulse-ring"></div>
+                    <h1>URBAN HEAT <span class="highlight">SCANNER</span></h1>
+                </div>
+                <div class="status-badge">
+                    <span class="dot"></span>
+                    Live Telemetry
+                </div>
+            </header>
+        </main>
+
+        <!-- Sidebar / Analytics Panel -->
+        <aside class="analytics-sidebar glass-panel">
+            <div class="panel-content">
+                <h2>Scan Analytics</h2>
+                <p class="subtitle">Mission Data Overview</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card hover-glow">
+                        <span class="icon">🌡️</span>
+                        <div class="stat-info">
+                            <span class="label">Max Surface Temp</span>
+                            <span class="value" id="max-temp">--°C</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card hover-glow">
+                        <span class="icon">❄️</span>
+                        <div class="stat-info">
+                            <span class="label">Min Surface Temp</span>
+                            <span class="value" id="min-temp">--°C</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card hover-glow">
+                        <span class="icon">📍</span>
+                        <div class="stat-info">
+                            <span class="label">Points Scanned</span>
+                            <span class="value" id="point-count">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card hover-glow">
+                        <span class="icon">💧</span>
+                        <div class="stat-info">
+                            <span class="label">Avg Humidity</span>
+                            <span class="value" id="avg-hum">--%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend-container">
+                    <h3>Heatmap Legend</h3>
+                    <div class="gradient-bar"></div>
+                    <div class="gradient-labels">
+                        <span>Cool (< 22°C)</span>
+                        <span>Hot (> 28°C)</span>
+                    </div>
+                </div>
+
+                <div class="action-section">
+                    <button id="refresh-btn" class="primary-btn">Sync New Data</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Leaflet JS & Heatmap Plugin -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
