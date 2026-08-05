@@ -1,51 +1,46 @@
-# Urban Heat Mapping
+# NASA Urban Heat Mapping System
 
-A UAV-based thermal mapping payload and data pipeline designed to collect high-resolution surface temperature data and compare it against moderate-resolution NASA satellite datasets (like Landsat 8/9 and ECOSTRESS).
+A handheld thermal mapping data acquisition system designed to collect physical micro-climate surface data across an urban campus and compare it against historical NASA satellite baseline datasets.
 
 ## 🚀 Project Overview
 
-The goal of this project is to investigate the urban heat island effect by capturing localized, low-altitude thermal signatures using a custom drone payload. This ground-truth data is then processed and visualized alongside corresponding NASA satellite data to analyze the spatial and temporal differences in temperature readings.
+The goal of this project is to investigate the urban heat island effect at San Bernardino Valley College. Due to hardware constraints and a pivot from a UAV payload to a handheld scanner, this project focuses heavily on **Data Architecture and Software Engineering**. 
 
-## 🛠️ Hardware Payload
+We built a custom browser-based Data Acquisition System that fuses live physical sensor data (via Arduino over USB) with the laptop's onboard HTML5 Geolocation API as the user walks the campus. This physical data is then processed through a Python pipeline that queries the NASA POWER REST API for historical baseline comparisons, culminating in an interactive web dashboard.
 
-The data collection system is built on an **Arduino Mega 2560 R3** operating independently of the drone's primary flight controller. 
+## 💻 System Architecture
 
-**Sensors & Components:**
-* **AMG8833 IR Thermal Module:** Captures an 8x8 pixel array of surface temperatures.
-* **DHT11 Sensor:** Records ambient temperature and humidity.
-* **NEO-6M GPS Module:** Provides exact geospatial coordinates and timestamps for all readings.
-* **EEPROM Storage:** Data is compressed and stored on the Mega's internal non-volatile EEPROM memory.
+The project is divided into four interconnected software systems:
 
-## 💻 Software Architecture
+1. **Hardware Firmware (Arduino):** A lightweight C++ sketch (`UrbanHeatMapping.ino`) that acts as a pure sensor node. It reads the DHT11 sensor every 2 seconds and streams live telemetry (Temperature & Humidity) to the USB Serial port.
+2. **Web Data Acquisition System (HTML/JS):** A custom web application (`logger/index.html`) that uses the modern **Web Serial API** to read the live stream from the Arduino, while simultaneously using the **HTML5 Geolocation API** to track the laptop's physical path. It merges the data in real-time and allows the user to download a consolidated `datalog.csv`.
+3. **NASA Integration & Pipeline (Python):** 
+    * `fetch_nasa_data.py`: Queries the open NASA POWER REST API to establish the true regional baseline temperatures based on satellite observations for the campus coordinates.
+    * `process_data.py`: Ingests the collected CSV, formats it into standardized web-ready spatial data (`GeoJSON`), and fuses it with the NASA baselines.
+4. **Interactive Web Dashboard (HTML/JS):** A stunning, modern web application (`dashboard/index.html`) built with Leaflet.js that visualizes the physical data walk as a continuous, fluid thermal gradient over the campus map, allowing side-by-side comparison with the NASA dataset.
 
-The project is divided into several interconnected systems:
+## 🚦 Getting Started
 
-1. **On-Board Data Logging (C++):** An Arduino sketch (`UrbanHeatMapping.ino`) that polls the thermal and ambient sensors alongside the GPS unit, writing structured binary data to the internal EEPROM during flight.
-2. **Data Processing Pipeline (Python):** Scripts to extract, clean, and format the raw flight logs into GeoJSON or similar web-ready formats. *(In Development)*
-3. **NASA API Integration (Python):** Tools to query NASA Earthdata APIs or Google Earth Engine for corresponding thermal satellite imagery. *(In Development)*
-4. **Web Dashboard (HTML/JS):** An interactive Leaflet.js map for visualizing the drone's heat map overlay against the satellite data. *(In Development)*
+### 1. Arduino Setup
+* Flash the `UrbanHeatMapping.ino` sketch to your Arduino Mega.
+* **Wiring:** Connect the DHT11 data pin to Digital Pin 7. Ensure power (5V) and Ground are connected.
 
-## 🚦 Getting Started with the Payload
+### 2. Live Data Collection
+1. Keep the Arduino plugged into your laptop via USB.
+2. Open `logger/index.html` in Google Chrome or Microsoft Edge (requires Web Serial API support).
+3. Click **Connect to Arduino**. Select your Arduino's COM port in the browser popup, and grant Location permissions.
+4. Walk the campus! The UI will show live tracking and point logging.
+5. Click **Download CSV** when finished, and save the file over `datalog.csv` in the root folder.
 
-### Prerequisites
+### 3. Data Processing & Visualization
+Run the Python pipeline to pull the NASA baselines and generate the dashboard data:
+```bash
+python scripts/fetch_nasa_data.py
+python scripts/process_data.py
+```
+*(Note: If you want to preview the dashboard without physical hardware, run `python scripts/generate_mock_data.py` before `process_data.py` to simulate a walking survey).*
 
-To compile and upload the payload sketch, you'll need the Arduino IDE and the following libraries installed via the Library Manager:
-
-* `Adafruit AMG88xx Library` (and `Adafruit BusIO`)
-* `DHT sensor library` (by Adafruit, requires `Adafruit Unified Sensor`)
-* `TinyGPSPlus` (by Mikal Hart)
-
-### Wiring Details
-* **GPS (NEO-6M):** Connects to `Serial1` (RX1 = Pin 19, TX1 = Pin 18)
-* **I2C Sensors (AMG8833):** SDA = Pin 20, SCL = Pin 21
-* **DHT11 Sensor:** Data pin connects to Digital Pin 5
-
-### 💾 Extracting Data
-Because data is stored on the internal EEPROM, you must export it to your computer via USB after the flight:
-1. Connect the Arduino to your laptop via USB.
-2. Open the **Arduino IDE Serial Monitor** (Set baud rate to 115200).
-3. Type `E` and press enter to **Export** the data. The Arduino will print the CSV data which you can copy and paste into a file.
-4. Type `C` and press enter to **Clear** the memory before your next flight.
+Finally, open `dashboard/index.html` to view the interactive thermal map!
 
 ## 📝 License
 
