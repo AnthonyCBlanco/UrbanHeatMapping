@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Urban Heat Logger</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        h1 { margin-top: 0; font-size: 24px; color: #0ea5e9; font-weight: 700; }
+        p { color: #64748b; font-size: 14px; margin-bottom: 25px; }
+        .data-panel {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 6px 0;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+        }
+        .data-label { color: #64748b; font-family: 'Inter', sans-serif;}
+        .data-val { color: #059669; font-weight: bold; }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        #connectBtn { background: #0ea5e9; color: white; }
+        #connectBtn:hover { background: #0284c7; }
+        #downloadBtn { background: #10b981; color: white; display: none; }
+        #downloadBtn:hover { background: #059669; }
+        
+        .status { margin-top: 15px; font-size: 12px; color: #f59e0b; font-weight: 600;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Web Data Acquisition</h1>
+    <p>Fuse live Arduino telemetry with laptop GPS</p>
+    
+    <div class="data-panel">
+        <div class="data-row"><span class="data-label">GPS Lat:</span> <span class="data-val" id="val-lat">Waiting...</span></div>
+        <div class="data-row"><span class="data-label">GPS Lon:</span> <span class="data-val" id="val-lon">Waiting...</span></div>
+        <div class="data-row"><span class="data-label">Ambient Temp:</span> <span class="data-val" id="val-temp">Waiting...</span></div>
+        <div class="data-row"><span class="data-label">Humidity:</span> <span class="data-val" id="val-hum">Waiting...</span></div>
+        <div class="data-row"><span class="data-label">Points Logged:</span> <span class="data-val" id="val-count">0</span></div>
+    </div>
+    
+    <button id="connectBtn">Connect to Arduino</button>
+    <button id="downloadBtn">Download CSV for Dashboard</button>
+    <div class="status" id="statusText">System Ready. Please connect device.</div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 :root {
-    --bg-dark: #0f172a;
-    --panel-bg: rgba(15, 23, 42, 0.75);
-    --panel-border: rgba(255, 255, 255, 0.1);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-glow: rgba(56, 189, 248, 0.5);
-    --primary-color: #38bdf8;
+    --bg-dark: #f8fafc;
+    --panel-bg: rgba(255, 255, 255, 0.95);
+    --panel-border: rgba(0, 0, 0, 0.08);
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-glow: rgba(56, 189, 248, 0.3);
+    --primary-color: #0ea5e9;
     --hot-color: #ef4444;
     --cold-color: #3b82f6;
 }
@@ -42,12 +42,12 @@ body {
     z-index: 1;
 }
 
-/* Dark mode Leaflet tiles */
+/* Standard Leaflet tiles (no invert for light mode) */
 .leaflet-layer,
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out,
 .leaflet-control-attribution {
-    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+    /* No filter needed for bright map */
 }
 
 .glass-header {
@@ -56,15 +56,15 @@ body {
     left: 20px;
     z-index: 1000;
     background: var(--panel-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--panel-border);
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 15px 25px;
     display: flex;
     align-items: center;
     gap: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     animation: slideDown 0.6s ease-out;
 }
 
@@ -117,11 +117,11 @@ h1 .highlight {
 .analytics-sidebar {
     width: 400px;
     background: var(--panel-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-left: 1px solid var(--panel-border);
     z-index: 10;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
 }
@@ -154,9 +154,9 @@ h2 {
 }
 
 .stat-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
     padding: 15px;
     display: flex;
     align-items: center;
@@ -166,16 +166,16 @@ h2 {
 
 .stat-card:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .stat-card .icon {
     font-size: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.04);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .stat-info {
@@ -201,9 +201,10 @@ h2 {
 .legend-container {
     margin-top: auto;
     margin-bottom: 30px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.02);
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .legend-container h3 {
@@ -238,23 +239,22 @@ h2 {
 .primary-btn {
     width: 100%;
     padding: 15px;
-    border: none;
+    border: 1px solid var(--primary-color);
     border-radius: 8px;
-    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    background: var(--primary-color);
     color: white;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
 }
 
 .primary-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
-    filter: brightness(1.1);
+    transform: translateY(-1px);
+    background: #0284c7;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
 }
 
 .primary-btn:active {
@@ -273,21 +273,21 @@ h2 {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Custom Leaflet Popup overrides for Dark mode */
+/* Custom Leaflet Popup overrides for Light mode */
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-    background: rgba(15, 23, 42, 0.95) !important;
-    color: #f8fafc !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.98) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 .leaflet-popup-content {
     font-family: 'Outfit', sans-serif;
     margin: 15px;
 }
 .popup-title {
-    font-weight: 800;
+    font-weight: 700;
     color: var(--primary-color);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
