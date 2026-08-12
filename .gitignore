@@ -70,6 +70,7 @@ Testing/
 
 # Data logs
 data_logs/
+*datalog*
 
 # Presentation files
 Timeline.png
