@@ -3,8 +3,8 @@ const map = L.map('map', {
     zoomControl: false // Hide default zoom, we can add it elsewhere if needed
 }).setView([37.7749, -122.4194], 14); // Default center, will bounds to data
 
-// Add Dark Matter CartoDB Basemap
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+// Add Light Matter CartoDB Basemap
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 20
@@ -26,6 +26,14 @@ async function loadData() {
         let minTemp = 999;
         let totalHum = 0;
         let pointCount = data.features.length;
+
+        // Check for NASA Baseline
+        const nasaBaseline = data.nasa_baseline_c;
+        if (nasaBaseline !== undefined && nasaBaseline !== null) {
+            document.getElementById('nasa-baseline').innerText = nasaBaseline.toFixed(1) + " °C";
+        } else {
+            document.getElementById('nasa-baseline').innerText = "Not Available";
+        }
 
         let heatPoints = [];
 
@@ -94,10 +102,19 @@ async function loadData() {
             onEachFeature: function (feature, layer) {
                 // Build Premium Popup
                 const p = feature.properties;
+                // Format Delta if available
+                let deltaHtml = "";
+                if (p.Delta_C !== undefined) {
+                    const sign = p.Delta_C > 0 ? "+" : "";
+                    const color = p.Delta_C > 0 ? "var(--hot-color)" : "var(--cold-color)";
+                    deltaHtml = `<div class="popup-row"><span>NASA Delta:</span> <span class="popup-val" style="color: ${color}">${sign}${p.Delta_C.toFixed(1)}°C</span></div>`;
+                }
+
                 const popupContent = `
                     <div class="popup-title">Scan Record</div>
                     <div class="popup-row"><span>Time:</span> <span class="popup-val">${p.Timestamp}</span></div>
                     <div class="popup-row"><span>Surface IR:</span> <span class="popup-val" style="color: ${getDynamicColor(p.CenterIRTemp_C)}">${p.CenterIRTemp_C.toFixed(1)}°C</span></div>
+                    ${deltaHtml}
                     <div class="popup-row"><span>Ambient:</span> <span class="popup-val">${p.AmbientTemp_C.toFixed(1)}°C</span></div>
                     <div class="popup-row"><span>Humidity:</span> <span class="popup-val">${p.Humidity_Pct.toFixed(1)}%</span></div>
                 `;

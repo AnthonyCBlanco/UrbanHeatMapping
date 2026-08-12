@@ -7,7 +7,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
   // Start Serial for Web Logger communication
-  Serial.begin(115200);
+  Serial.begin(9600);
   
   // Initialize DHT11
   dht.begin();

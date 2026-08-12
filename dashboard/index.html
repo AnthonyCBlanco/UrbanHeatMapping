@@ -63,14 +63,24 @@
                         </div>
                     </div>
                     
-                    <div class="stat-card hover-glow">
-                        <span class="icon">💧</span>
-                        <div class="stat-info">
-                            <span class="label">Avg Humidity</span>
-                            <span class="value" id="avg-hum">--%</span>
-                        </div>
+                    <div class="stat-card">
+                    <div class="icon">📈</div>
+                    <div class="stat-info">
+                        <span class="label">Avg Humidity</span>
+                        <span class="value" id="avg-hum">--</span>
                     </div>
                 </div>
+            </div>
+            
+            <div class="stats-grid" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+                <div class="stat-card" style="background: rgba(14, 165, 233, 0.05); border-color: rgba(14, 165, 233, 0.2);">
+                    <div class="icon" style="background: rgba(14, 165, 233, 0.1);">🛰️</div>
+                    <div class="stat-info">
+                        <span class="label">NASA Satellite Baseline</span>
+                        <span class="value" id="nasa-baseline" style="color: var(--text-primary);">--</span>
+                    </div>
+                </div>
+            </div>
 
                 <div class="legend-container">
                     <h3>Heatmap Legend</h3>

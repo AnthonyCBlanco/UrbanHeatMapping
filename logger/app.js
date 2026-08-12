@@ -39,7 +39,7 @@ btnConnect.addEventListener('click', async () => {
     try {
         // Request a port and open a connection.
         port = await navigator.serial.requestPort();
-        await port.open({ baudRate: 115200 });
+        await port.open({ baudRate: 9600 });
         
         elStatus.innerText = "Connected to Arduino. Listening for data...";
         btnConnect.style.display = 'none';

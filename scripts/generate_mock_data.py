@@ -23,8 +23,8 @@ HOTSPOTS = [
 
 # Get the directory of the current script
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# Save the output file one level up in the main project folder
-OUTPUT_FILE = os.path.join(SCRIPT_DIR, "..", "datalog.csv")
+# Save the output file into the data_logs folder so it gets picked up automatically
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, "..", "data_logs", "mock_data.csv")
 NASA_FILE = os.path.join(SCRIPT_DIR, "nasa_baseline.json")
 
 def load_nasa_baseline():

@@ -67,3 +67,14 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Data logs
+data_logs/
+
+# Presentation files
+Timeline.png
+Timeline.md
+Video_Presentation_Script.md
+
+# Resources
+resources/
